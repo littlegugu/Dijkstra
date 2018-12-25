@@ -33,11 +33,15 @@ public class MyCallable implements Callable {
         Integer pIndex;
         while (pit.hasNext()){
             pIndex = pit.next();
-            if (index==pIndex){
-                break;
-            }
+//            if (index==pIndex){
+//                break;
+//            }
             if(mat[index][pIndex]>0){
-                arr[index]=arr[index]<(mat[index][pIndex]+arr[pIndex])?arr[index]:(mat[index][pIndex]+arr[pIndex]);
+                if (arr[index]==0){
+                    arr[index] = mat[index][pIndex]+arr[pIndex];
+                }else{
+                    arr[index] = arr[index]<(mat[index][pIndex]+arr[pIndex])?arr[index]:(mat[index][pIndex]+arr[pIndex]);
+                }
             }
         }
 //        System.out.println("call");
